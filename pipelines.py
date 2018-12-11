@@ -5,25 +5,19 @@ class TextPipeline(object):
         self.limit = 50
     
     def process_item(self,item,spider):
-    # item['educations'][0]['major']['introduction']
-    # item['educations'][0]['major']['excerpt']
-
-    # item['locations'][0]['introduction']
-    # item['locations'][0]['excerpt']
-
-        if item['educations']:
-            for education in item['educations']:
-                education['school']['introduction']=self.cut(education['school']['introduction'])
-                education['major']['introduction']=self.cut(education['major']['introduction'])
-                education['major']['excerpt']=self.cut(education['major']['excerpt'])
-        if item['locations']:
-            for location in item['locations']:
-                location['introduction']=self.cut(location['introduction'])
-                location['excerpt']=self.cut(location['excerpt'])
-        if 'business' in item.keys():
-            if item['business']:
-                item['business']['introduction']=self.cut(item['business']['introduction'])
-                item['business']['excerpt']=self.cut(item['business']['excerpt'])
+        # if item['educations']:
+        #     for education in item['educations']:
+        #         education['school']['introduction']=self.cut(education['school']['introduction'])
+        #         education['major']['introduction']=self.cut(education['major']['introduction'])
+        #         education['major']['excerpt']=self.cut(education['major']['excerpt'])
+        # if item['locations']:
+        #     for location in item['locations']:
+        #         location['introduction']=self.cut(location['introduction'])
+        #         location['excerpt']=self.cut(location['excerpt'])
+        # if 'business' in item.keys():
+        #     if item['business']:
+        #         item['business']['introduction']=self.cut(item['business']['introduction'])
+        #         item['business']['excerpt']=self.cut(item['business']['excerpt'])
 
         return item
 

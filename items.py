@@ -43,7 +43,7 @@ class UserItem(scrapy.Item):
     mutual_followees_count = Field()
     hosted_live_count = Field()
     participated_live_count = Field()
-    locations = Field()
+    # locations = Field()
     educations = Field()
     employments = Field()
     business = Field()
