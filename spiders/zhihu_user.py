@@ -36,7 +36,7 @@ class ZhihuUserSpider(scrapy.Spider):
             for result in results.get('data'):
                 yield Request(self.user_url.format(user=result.get('url_token'), include=self.user_query),self.parse_user)
                 time.sleep(1)
-        move to next page and do the follower's list parse again 
+        # move to next page and do the follower's list parse again 
         if 'paging' in results.keys() and results.get('paging').get('is_end') == False:
             # next_page = results.get('paging').get('next')
             # above is not working cuz next_page is not showing the right url
