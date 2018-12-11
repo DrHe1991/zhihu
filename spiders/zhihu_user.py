@@ -36,11 +36,11 @@ class ZhihuUserSpider(scrapy.Spider):
             for result in results.get('data'):
                 yield Request(self.user_url.format(user=result.get('url_token'), include=self.user_query),self.parse_user)
                 time.sleep(1)
-        # move to next page and do the follower's list parse again 
-        # if 'paging' in results.keys() and results.get('paging').get('is_end') == False:
-        #     # next_page = results.get('paging').get('next')
-        #     # above is not working cuz next_page is not showing the right url
-        #     next_page = self.followers_url.format(user=self.start_user, include=self.followers_query, limit=20, offset=self.offset+20)        
-        #     yield Request(next_page,self.parse_followers)
-        #     self.offset += 20
+        move to next page and do the follower's list parse again 
+        if 'paging' in results.keys() and results.get('paging').get('is_end') == False:
+            # next_page = results.get('paging').get('next')
+            # above is not working cuz next_page is not showing the right url
+            next_page = self.followers_url.format(user=self.start_user, include=self.followers_query, limit=20, offset=self.offset+20)        
+            yield Request(next_page,self.parse_followers)
+            self.offset += 20
 
